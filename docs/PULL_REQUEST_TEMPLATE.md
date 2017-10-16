@@ -28,13 +28,11 @@ other_pr_master | [link]()
 
 
 
-## Steps to Test or Reproduce
-Outline the steps to test or reproduce the PR here.
+## Issues
+Identify the issues this version resolves.
 
 ```sh
-git pull --prune
-git checkout <feature_branch>
-bundle; script/server
+
 ```
 
 1. 
