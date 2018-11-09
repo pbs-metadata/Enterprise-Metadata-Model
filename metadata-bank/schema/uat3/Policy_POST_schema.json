@@ -1,0 +1,132 @@
+{
+  "type": "object",
+  "required": [
+    "PolicyType",
+    "ReferentType",
+    "Rules",
+    "StructuralType",
+    "Title"
+  ],
+  "properties": {
+    "PolicyType": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(.*)$"
+    },
+    "ReferentType": {
+      "type": "string",
+      "pattern": "^(.*)$",
+      "enum": [
+        "Series",
+        "Season",
+        "TV",
+        "Movie",
+        "Short",
+        "Web",
+        "Compilation",
+        "Supplemental",
+        "Offer"
+      ]
+    },
+    "StructuralType": {
+      "type": "string",
+      "pattern": "^(.*)$",
+      "enum": [
+        "Abstraction",
+        "Performance",
+        "Digital"
+      ]
+    },
+    "Title": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(.*)$"
+    },
+    "EntityType": {
+      "type": "string",
+      "pattern": "^(.*)$"
+    },
+    "Rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "RuleAlternateUID": {
+            "type": "string",
+            "pattern": "^(.*)$"
+          },
+          "RuleType": {
+            "type": "string",
+            "pattern": "^(.*)$"
+          },
+          "Action": {
+            "type": "object",
+            "properties": {
+              "MediaRight": {
+                "type": "string",
+                "pattern": "^(.*)$"
+              },
+              "MaximumExploitation": {
+                "type": "string",
+                "pattern": "^(.*)$"
+              },
+              "UseWindow": {
+                "type": "object",
+                "title": "The Usewindow Schema",
+                "properties": {
+                  "TermStartDate": {
+                    "type": "string",
+                    "pattern": "^(.*)$"
+                  },
+                  "TermEndDate": {
+                    "type": "string",
+                    "pattern": "^(.*)$"
+                  },
+                  "Calculated": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "Calculated",
+                  "TermEndDate",
+                  "TermStartDate"
+                ]
+              }
+            },
+            "required": [
+              "MaximumExploitation",
+              "MediaRight"
+            ]
+          },
+          "EntryList": {
+            "type": "array",
+            "title": "The Entrylist Schema",
+            "items": {
+              "type": "object",
+              "properties": {
+                "EntryUID": {
+                  "type": "string",
+                  "pattern": "^(.*)$"
+                },
+                "EntryClass": {
+                  "type": "string",
+                  "pattern": "^(.*)$"
+                }
+              },
+              "required": [
+                "EntryClass",
+                "EntryUID"
+              ]
+            }
+          }
+        },
+        "required": [
+          "Action",
+          "EntryList",
+          "RuleAlternateUID",
+          "RuleType"
+        ]
+      }
+    }
+  }
+}

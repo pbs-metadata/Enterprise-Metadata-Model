@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "required": [
+    "FileClass",
+    "FileDeliveryStatus",
+    "ParentID"
+  ],
+  "properties": {
+    "ParentID": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(.*)$"
+    },
+    "FileClass": {
+      "type": "string",
+      "pattern": "^(.*)$",
+      "enum": [
+        "Manifest",
+        "Metadata",
+        "Media",
+        "Avail",
+        "Ancillary"
+      ]
+    },
+    "FileName": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(.*)$"
+    },
+    "FileDeliveryStatus": {
+      "type": "string",
+      "pattern": "^(.*)$",
+      "enum": [
+        "Removed",
+        "Delivered",
+        "Future",
+        "Other"
+      ]
+    },
+    "AlternateAssetIDList": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "AssetUID": {
+            "type": "string",
+            "pattern": "^(.*)$"
+          }
+        },
+        "required": [
+          "AssetUID"
+        ]
+      }
+    }
+  }
+}

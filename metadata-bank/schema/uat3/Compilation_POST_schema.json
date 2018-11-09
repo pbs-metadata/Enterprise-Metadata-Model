@@ -1,0 +1,133 @@
+{
+  "type": "object",
+  "required": [
+    "CompilationClass",
+    "EntryList",
+    "ReferentType",
+    "StructuralType",
+    "Title",
+    "ContentIDList"
+  ],
+  "properties": {
+    "Title": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(.*)$"
+    },
+    "EidrId": {
+      "type": "string",
+      "pattern": "^(.*)$"
+    },
+    "ReferentType": {
+      "type": "string",
+      "pattern": "^(.*)$",
+      "enum": [
+        "Series",
+        "Season",
+        "TV",
+        "Movie",
+        "Short",
+        "Web",
+        "Compilation",
+        "Supplemental",
+        "Offer",
+        "Set",
+        "Agreement"
+      ]
+    },
+    "StructuralType": {
+      "type": "string",
+      "pattern": "^(.*)$",
+      "enum": [
+        "Abstraction",
+        "Performance",
+        "Digital"
+      ]
+    },
+    "CompilationClass": {
+      "type": "string",
+      "pattern": "^(.*)$",
+      "enum": [
+        "Blu-ray",
+        "Digital Cinema",
+        "Distribution Bundle",
+        "Distribution Season",
+        "DVD",
+        "EST",
+        "Franchise",
+        "Home Entertainment",
+        "Syndication",
+        "Series",
+        "Season:Recut",
+        "Season:Pro-Forma",
+        "Season:Mini-Series",
+        "Other"
+      ]
+    },
+    "ReleaseDate": {
+      "type": "string",
+      "pattern": "^(.*)$"
+    },
+    "CompilationUID": {
+      "type": "string",
+      "pattern": "^(.*)$"
+    },
+    "ContentIDList": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ContentID": {
+            "type": "string",
+            "pattern": "^(.*)$"
+          }
+        },
+        "required": [
+          "ContentID"
+        ]
+      }
+    },
+    "EntryList": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "EntryClass": {
+            "type": "string",
+            "enum": [
+              "Episode",
+              "Installment",
+              "Part",
+              "Season"
+            ]
+          },
+          "EntryNumber": {
+            "type": "string",
+            "pattern": "^(.*)$"
+          },
+          "EntryContentUID": {
+            "type": "string",
+            "pattern": "^(.*)$"
+          }
+        },
+        "required": [
+          "EntryClass",
+          "EntryContentUID",
+          "EntryNumber"
+        ]
+      }
+    },
+    "CreateDateTime": {
+      "type": "string",
+      "pattern": "^(.*)$"
+    },
+    "UpdateDateTime": {
+      "type": "string",
+      "pattern": "^(.*)$"
+    },
+    "PublishedStatus": {
+      "type": "string",
+      "pattern": "^(.*)$"
+    }
+  }
+}

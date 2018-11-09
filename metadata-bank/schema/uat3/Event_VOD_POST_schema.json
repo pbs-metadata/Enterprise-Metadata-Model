@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "required": [
+    "AlternateEventID",
+    "EndDateTime",
+    "StartDateTime"
+  ],
+  "properties": {
+    "AlternateEventID": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(.*)$"
+    },
+    "AiringType": {
+      "type": "string",
+      "pattern": "^(.*)$",
+      "enum": [
+        "Repeat",
+        "Premiere",
+        "Live",
+        "Taped"
+      ]
+    },
+    "PlayRun": {
+      "type": "integer"
+    },
+    "PublishedStatus": {
+      "type": "string",
+      "pattern": "^(.*)$"
+    },
+    "ProviderSource": {
+      "type": "string",
+      "pattern": "^(.*)$"
+    },
+    "AssetUID": {
+      "type": "string",
+      "pattern": "^(.*)$"
+    },
+    "StartDateTime": {
+      "type": "string",
+      "pattern": "^(.*)$"
+    },
+    "EndDateTime": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(.*)$"
+    }
+  }
+}

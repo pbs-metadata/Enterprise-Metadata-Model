@@ -1,0 +1,60 @@
+{
+  "type": "object",
+  "required": [
+    "Action",
+    "RuleAlternateUID",
+    "RuleType"
+  ],
+  "properties": {
+    "RuleAlternateUID": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(.*)$"
+    },
+    "RuleType": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(.*)$"
+    },
+    "Action": {
+      "type": "object",
+      "properties": {
+        "MediaRight": {
+          "type": "string",
+          "pattern": "^(.*)$"
+        },
+        "MaximumExploitation": {
+          "type": "string",
+          "pattern": "^(.*)$"
+        },
+        "UseWindow": {
+          "type": "object",
+          "title": "The Usewindow Schema",
+          "properties": {
+            "TermStartDate": {
+              "type": "string",
+              "pattern": "^(.*)$"
+            },
+            "TermEndDate": {
+              "type": "string",
+              "pattern": "^(.*)$"
+            },
+            "Calculated": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "Calculated",
+            "TermEndDate",
+            "TermStartDate"
+          ]
+        }
+      },
+      "required": [
+        "MaximumExploitation",
+        "MediaRight",
+        "UseWindow"
+      ]
+    }
+  }
+}
