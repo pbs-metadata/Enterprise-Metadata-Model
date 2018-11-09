@@ -1,0 +1,21 @@
+{
+  "definitions": {},
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "EntryClass",
+    "EntryUID"
+  ],
+  "properties": {
+    "EntryClass": {
+      "id": "#/properties/EntryClass",
+      "type": "string",
+      "pattern": "^(.*)$"
+    },
+    "EntryUID": {
+      "id": "#/properties/EntryUID",
+      "type": "string",
+      "pattern": "^(.*)$"
+    }
+  }
+}
