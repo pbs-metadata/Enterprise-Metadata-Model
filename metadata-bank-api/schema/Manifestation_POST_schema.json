@@ -8,17 +8,14 @@
   "properties": {
     "ManifestationClass": {
       "type": "string",
-      "minLength": 1,
       "pattern": "^(.*)$"
     },
     "ParentID": {
       "type": "string",
-      "minLength": 1,
       "pattern": "^(.*)$"
     },
     "Title": {
       "type": "string",
-      "minLength": 1,
       "pattern": "^(.*)$"
     },
     "EidrId": {
@@ -112,7 +109,6 @@
         "properties": {
           "Term": {
             "type": "string",
-            "minLength": 1,
             "pattern": "^(.*)$"
           }
         },

@@ -1,14 +1,22 @@
 {
   "type": "object",
   "required": [
-    "ApproximateLength",
+    "ParentID",
     "ReferentType",
-    "SeriesClass",
-    "Title"
+    "EpisodeNumber",
+    "EpisodeClass",
+    "PrimaryGenre",
+    "ApproximateLength",
+    "Title",
+    "TitleClass",
+    "OrganizationList"
   ],
-  "additionalProperties": false,
   "properties": {
-    "SeriesUID": {
+    "EpisodeUID": {
+      "type": "string",
+      "pattern": "^(.*)$"
+    },
+    "ParentID": {
       "type": "string",
       "pattern": "^(.*)$"
     },
@@ -20,9 +28,6 @@
         "Performance",
         "Digital"
       ]
-    },
-    "DistributionNumber": {
-      "type": "integer"
     },
     "ReferentType": {
       "type": "string",
@@ -38,32 +43,16 @@
         "Supplemental"
       ]
     },
-    "Mode": {
-      "type": "string",
-      "pattern": "^(.*)$",
-      "enum": [
-        "AudioVisual",
-        "Visual",
-        "Audio",
-        "Other"
-      ]
-    },
-    "SeriesClass": {
-      "type": "string",
-      "pattern": "^(.*)$",
-      "enum": [
-        "Episodic",
-        "Anthology",
-        "Mini-series"
-      ]
-    },
     "EntityType": {
       "type": "string",
       "pattern": "^(.*)$"
     },
-    "EidrId": {
+    "Eidrid": {
       "type": "string",
       "pattern": "^(.*)$"
+    },
+    "DistributionNumber": {
+      "type": "integer"
     },
     "CreateDateTime": {
       "type": "string",
@@ -79,7 +68,10 @@
     },
     "Title": {
       "type": "string",
-      "minLength": 1,
+      "pattern": "^(.*)$"
+    },
+    "Title120": {
+      "type": "string",
       "pattern": "^(.*)$"
     },
     "TitleClass": {
@@ -279,6 +271,31 @@
       ]
     },
     "ReleaseDate": {
+      "type": "string",
+      "pattern": "^(.*)$"
+    },
+    "EpisodeNumber": {
+      "type": "integer"
+    },
+    "EpisodeClass": {
+      "type": "string",
+      "pattern": "^(.*)$",
+      "enum": [
+        "Main",
+        "Omnibus",
+        "Pilot",
+        "Recut",
+        "Segment",
+        "Special",
+        "Standalone",
+        "One Time Only"
+      ]
+    },
+    "PrimaryGenre": {
+      "type": "string",
+      "pattern": "^(.*)$"
+    },
+    "SecondaryGenre": {
       "type": "string",
       "pattern": "^(.*)$"
     },
@@ -547,7 +564,6 @@
     },
     "ApproximateLength": {
       "type": "string",
-      "minLength": 1,
       "pattern": "^(.*)$"
     },
     "Language": {
@@ -995,13 +1011,13 @@
           }
         },
         "required": [
-          "DisplayName",
           "TalentID"
         ]
       }
     },
     "OrganizationList": {
       "type": "array",
+      "minItems": 1,
       "items": {
         "type": "object",
         "properties": {
@@ -1018,7 +1034,7 @@
           },
           "Role": {
             "type": "string",
-            "pattern": "^(.*)$"
+            "pattern": "^Distributor"
           },
           "ContactInfoList": {
             "type": "array",
@@ -1057,9 +1073,42 @@
           }
         },
         "required": [
+          "ContactInfoList",
           "OrganizationID"
         ]
       }
     }
-  }
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "EpisodeClass": {
+          "enum": [
+            "Main",
+            "Special"
+          ]
+        },
+        "ParentID": {
+          "pattern": "Season"
+        }
+      }
+    },
+    {
+      "not": {
+        "properties": {
+          "EpisodeClass": {
+            "enum": [
+              "Main",
+              "Special"
+            ]
+          }
+        }
+      },
+      "properties": {
+        "ParentID": {
+          "type": "string"
+        }
+      }
+    }
+  ]
 }

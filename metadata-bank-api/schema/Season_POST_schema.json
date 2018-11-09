@@ -14,7 +14,6 @@
     },
     "ParentID": {
       "type": "string",
-      "minLength": 1,
       "pattern": "^(.*)$"
     },
     "StructuralType": {
@@ -40,24 +39,22 @@
         "Supplemental"
       ]
     },
-    "SequenceNumber": {
-      "type": "integer"
-    },
-    "Title": {
+    "SeasonClass": {
       "type": "string",
       "pattern": "^(.*)$",
-      "minLength": 1
-    },
-    "TitleClass": {
-      "type": "string",
-      "pattern": "^(.*)$",
-      "minLength": 1
+      "enum": [
+        "Adjunct",
+        "Main",
+        "Miniseries",
+        "Pro Forma",
+        "Recut"
+      ]
     },
     "EntityType": {
       "type": "string",
       "pattern": "^(.*)$"
     },
-    "EidrId": {
+    "Eidrid": {
       "type": "string",
       "pattern": "^(.*)$"
     },
