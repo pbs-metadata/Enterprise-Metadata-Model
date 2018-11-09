@@ -8,10 +8,12 @@
   "properties": {
     "RuleAlternateUID": {
       "type": "string",
+      "minLength": 1,
       "pattern": "^(.*)$"
     },
     "RuleType": {
       "type": "string",
+      "minLength": 1,
       "pattern": "^(.*)$"
     },
     "Action": {

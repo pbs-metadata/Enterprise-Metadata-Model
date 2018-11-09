@@ -8,8 +8,7 @@
     "PrimaryGenre",
     "ApproximateLength",
     "Title",
-    "TitleClass",
-    "OrganizationList"
+    "TitleClass"
   ],
   "properties": {
     "EpisodeUID": {
@@ -18,7 +17,8 @@
     },
     "ParentID": {
       "type": "string",
-      "pattern": "^(.*)$"
+      "pattern": "^(.*)$",
+      "minLength": 1
     },
     "StructuralType": {
       "type": "string",
@@ -47,7 +47,7 @@
       "type": "string",
       "pattern": "^(.*)$"
     },
-    "Eidrid": {
+    "EidrId": {
       "type": "string",
       "pattern": "^(.*)$"
     },
@@ -68,15 +68,13 @@
     },
     "Title": {
       "type": "string",
-      "pattern": "^(.*)$"
-    },
-    "Title120": {
-      "type": "string",
-      "pattern": "^(.*)$"
+      "pattern": "^(.*)$",
+      "minLength": 1
     },
     "TitleClass": {
       "type": "string",
-      "pattern": "^(.*)$"
+      "pattern": "^(.*)$",
+      "minLength": 1
     },
     "TitleLanguage": {
       "type": "string",
@@ -287,13 +285,13 @@
         "Recut",
         "Segment",
         "Special",
-        "Standalone",
-        "One Time Only"
+        "Standalone"
       ]
     },
     "PrimaryGenre": {
       "type": "string",
-      "pattern": "^(.*)$"
+      "pattern": "^(.*)$",
+      "minLength": 1
     },
     "SecondaryGenre": {
       "type": "string",
@@ -564,7 +562,8 @@
     },
     "ApproximateLength": {
       "type": "string",
-      "pattern": "^(.*)$"
+      "pattern": "^(.*)$",
+      "minLength": 1
     },
     "Language": {
       "type": "object",
@@ -1089,7 +1088,7 @@
           ]
         },
         "ParentID": {
-          "pattern": "Season"
+          "pattern": "^cid:org:pbs.org:Season"
         }
       }
     },

@@ -1,0 +1,104 @@
+{
+  "type": "object",
+  "required": [
+    "AirDateTime",
+    "AlternateEventID",
+    "Duration",
+    "ProgramService"
+  ],
+  "properties": {
+    "AlternateEventID": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(.*)$"
+    },
+    "AiringType": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(.*)$",
+      "enum": [
+        "Repeat",
+        "Premiere",
+        "Live",
+        "Taped"
+      ]
+    },
+    "PlayRun": {
+      "type": "integer"
+    },
+    "PlayType": {
+      "type": "string",
+      "pattern": "^(.*)$",
+      "enum": [
+        "Hard Feed (without rights)",
+        "Hard Feed (with rights)",
+        "Soft Feed (with rights)",
+        "Soft Feed (without rights)",
+        "Preview For Air",
+        "Preview Not For Air",
+        "Not For Air",
+        "Re-Feed",
+        "Internal Only",
+        "Repeat",
+        "Prefeed",
+        "Feed For Record",
+        "Other Hard Feed (with Rights)",
+        "Other Hard Feed (without Rights)"
+      ]
+    },
+    "AirDateTime": {
+      "type": "string",
+      "pattern": "^(.*)$"
+    },
+    "Duration": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(.*)$"
+    },
+    "ProgramService": {
+      "type": "object",
+      "properties": {
+        "ProviderSource": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^(.*)$"
+        },
+        "ProviderSourceName": {
+          "type": "string",
+          "pattern": "^(.*)$",
+          "enum": [
+            "APT Exchange",
+            "APT Premium Service",
+            "NETA Access",
+            "NPS",
+            "PBS KIDS Channel",
+            "PBS PLUS",
+            "PBS Fundraising Programming"
+          ]
+        },
+        "ProviderTimeZone": {
+          "type": "string",
+          "pattern": "^(.*)$",
+          "enum": [
+            "CST",
+            "CDT",
+            "EST",
+            "EDT",
+            "PST",
+            "PDT",
+            "MST",
+            "MDT",
+            "HST",
+            "HDT",
+            "AKST",
+            "AKDT"
+          ]
+        }
+      },
+      "required": [
+        "ProviderSource",
+        "ProviderSourceName"
+      ]
+    }
+  }
+}

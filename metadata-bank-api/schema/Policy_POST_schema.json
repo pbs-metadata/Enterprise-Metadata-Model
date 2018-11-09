@@ -7,10 +7,10 @@
     "StructuralType",
     "Title"
   ],
-  "additionalProperties": false,
   "properties": {
     "PolicyType": {
       "type": "string",
+      "minLength": 1,
       "pattern": "^(.*)$"
     },
     "ReferentType": {
@@ -39,6 +39,7 @@
     },
     "Title": {
       "type": "string",
+      "minLength": 1,
       "pattern": "^(.*)$"
     },
     "EntityType": {

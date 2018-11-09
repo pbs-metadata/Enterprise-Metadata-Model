@@ -2,18 +2,19 @@
   "type": "object",
   "required": [
     "CompilationClass",
-    "ContentIDList",
+    "EntryList",
     "ReferentType",
     "StructuralType",
     "Title",
-    "EntryList"
+    "ContentIDList"
   ],
   "properties": {
     "Title": {
       "type": "string",
+      "minLength": 1,
       "pattern": "^(.*)$"
     },
-    "EidrID": {
+    "EidrId": {
       "type": "string",
       "pattern": "^(.*)$"
     },
@@ -49,9 +50,8 @@
       "enum": [
         "Blu-ray",
         "Digital Cinema",
-        "Distribution Season",
         "Distribution Bundle",
-        " Season",
+        "Distribution Season",
         "DVD",
         "EST",
         "Franchise",
@@ -94,7 +94,12 @@
         "properties": {
           "EntryClass": {
             "type": "string",
-            "pattern": "^(.*)$"
+            "enum": [
+              "Episode",
+              "Installment",
+              "Part",
+              "Season"
+            ]
           },
           "EntryNumber": {
             "type": "string",
@@ -111,6 +116,18 @@
           "EntryNumber"
         ]
       }
+    },
+    "CreateDateTime": {
+      "type": "string",
+      "pattern": "^(.*)$"
+    },
+    "UpdateDateTime": {
+      "type": "string",
+      "pattern": "^(.*)$"
+    },
+    "PublishedStatus": {
+      "type": "string",
+      "pattern": "^(.*)$"
     }
   }
 }
