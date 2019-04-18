@@ -1,2 +1,1 @@
-# Public-Media-MOS
-The Public Media Metadata Operations Specification.  This Metadata Application Profile (MAP) is the basis for how commonly interchanged metadata is structured and validated in Public Broadcasting. The MAP uses the Entertainment Identifier Registry as its standard. The MAP builds its schema upon the experience of MovieLabs, CableLabs, and Gracenotes in rank order and integrates interoperability needs for Broadcast and Digital content and across Public Broadcasting products. The current version is 2.1.
+
